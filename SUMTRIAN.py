@@ -1,16 +1,16 @@
+def maxSum(triangle):
+    if len(triangle) == 1:
+        return max(triangle[0])
+    else:
+        for i in range(len(triangle[0])):
+            print(triangle)
+            return max(triangle[0][i]+maxSum(triangle[1:]))
+
 for _ in range(int(input())):
     n = int(input())
-    i = 0
-    maxsum = 0
-    while n > 0:
-        nums = list(map(int,input().split()))
-        if len(nums) == 1:
-            maxsum += nums[0]
-        else:
-            if nums[i] < nums[i+1]:
-                maxsum += nums[i+1]
-                i += 1
-            else:
-                maxsum += nums[i]
-        n -= 1
+    triangle = []
+    for i in range(n):
+        triangle.append(list(map(int, input().split())))
+    print(triangle)
+    maxsum = maxSum(triangle)
     print(maxsum)
